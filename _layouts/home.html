@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+        <link rel="stylesheet" href="/assets/css/home.css" />
+        <!-- <link rel="stylesheet" href="/assets/css/animate.min.css" /> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    </head>
+    <body>
+        <div class="splash">
+            <div class="splash--item">
+                {% include logo_white.html id="logo" animate=true %}
+            </div>
+            <div class="splash--item">
+                {% include title.html animate=true %}
+            </div>
+        </div>
+        {{ content }}
+    </body>
+</html>

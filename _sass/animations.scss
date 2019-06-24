@@ -1,0 +1,14 @@
+@keyframes shard {
+    0% {
+        y: 200px;
+    }
+    100% {
+        y: 0px;
+        fill: #fff;
+    }
+}
+
+.shard {
+    animation: shard 1s ease-in-out infinite;
+    animation-delay: 2s;
+}

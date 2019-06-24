@@ -12,6 +12,6 @@ npx webpack -w
 ```
 In one console, and
 ```
-bundle exec jekyll serve --incremental
+bundle exec jekyll serve
 ```
 in another.

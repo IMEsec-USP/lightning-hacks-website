@@ -2,6 +2,6 @@ _site
 .sass-cache
 */.jekyll-metadata
 .jekyll-cache/
-src/assets/javascripts/bundle.js
+src/assets/javascript/bundle.js
 node_modules/
 public

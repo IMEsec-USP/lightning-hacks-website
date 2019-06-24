@@ -29,6 +29,8 @@ markdown: kramdown
 source: src
 plugins:
   - jekyll-feed
+  - jekyll-assets
+exclude: ['node_modules']
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

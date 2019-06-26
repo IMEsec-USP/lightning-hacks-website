@@ -12,6 +12,7 @@ copy . /app
 run npx webpack
 entrypoint ["/bin/bash"]
 run mkdir /app/_site
+run mkdir /app/.jekyll-cache
 run jekyll build
 
 # Strip build image & serve

@@ -29,6 +29,10 @@ source: src
 plugins:
   - jekyll-feed
   - jekyll-assets
+  - jekyll-minifier
+assets:
+  js_compressor: nil
+
 exclude: ['node_modules', 'Gemfile.lock', 'webpack']
 
 # Exclude from processing.

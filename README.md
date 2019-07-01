@@ -1,6 +1,5 @@
 # Lightning Hacks Website
 
-
 After cloning the repository, run
 ```
 npm i

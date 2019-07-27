@@ -5,13 +5,14 @@
     background-color: rgba($color: #fff, $alpha: 0.0);
     color: #fff;
     text-align: center;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     top: 5vh;
 }
 
 .splash {
     display: flex;
+    background: #f70d88;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

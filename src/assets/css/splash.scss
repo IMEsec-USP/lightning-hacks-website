@@ -1,18 +1,33 @@
 ---
 ---
 
+.header {
+    background-color: rgba($color: #fff, $alpha: 0.0);
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    width: 100vw;
+    top: 5vh;
+}
+
 .splash {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.title {
-    color: #fff;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
 .splash--item {
+    min-width: 50vw;
+}
 
+.title {
+    font-size: 3.2em;
+    color: #fff;
+    text-align: center;
+    word-wrap: break-word;
 }

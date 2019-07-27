@@ -5,12 +5,19 @@
         <link rel="stylesheet" href="/assets/css/splash.css" />
     </head>
     <body>
+        <header class="header">
+            <p>LIGHTNING HACKS</p>
+        </header>
         <div class="splash">
             <div class="splash--item">
-                {% include logo_yellow.html id="logo" animate=true %}
+                {% include logo_yellow.html id="logo" animate=true width='50vw' %}
             </div>
             <div class="splash--item">
-                {% include title.html animate=true %}
+                <div class="title"> 
+                    <p>Uma</p>
+                    <h3>INICIATIVA</h3>
+                    <p>de <b>hackers</b> para <b>hackers</b></p>
+                </div>
             </div>
         </div>
         {{ content }}

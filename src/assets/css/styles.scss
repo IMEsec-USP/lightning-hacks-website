@@ -32,11 +32,14 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .home--content {
     color: #fff;
     text-align: center;
+    font-size: 1em;
+    margin: 5vw;
     .home--button {
         margin-top: 2em;
         display: inline-block;
@@ -56,4 +59,20 @@
 
 .home--button:hover {
     filter: brightness(75%);
+}
+
+.home--left-image {
+    width: 40em;
+}
+
+.home--right-image {
+    width: 40em;
+}
+
+.home--left-text {
+    padding: 5em 0;
+}
+
+.home--right-text {
+    padding: 5em 0;
 }

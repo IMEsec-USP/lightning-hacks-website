@@ -24,6 +24,11 @@
 
 .splash--item {
     min-width: 50vw;
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
 }
 
 .title {

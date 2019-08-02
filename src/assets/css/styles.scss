@@ -35,6 +35,12 @@
     align-items: center;
 }
 
+.home--section-reversed {
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
 .home--content {
     color: #fff;
     text-align: center;
@@ -70,9 +76,10 @@
 }
 
 .home--left-text {
-    padding: 5em 0;
+    padding: 0em 0;
+    order: 1;
 }
 
 .home--right-text {
-    padding: 5em 0;
+    padding: 0em 0;
 }

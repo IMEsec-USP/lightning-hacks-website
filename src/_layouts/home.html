@@ -3,6 +3,8 @@
         <title>{{ page.title }}</title>
         <link rel="stylesheet" href="/assets/css/styles.css" />
         <link rel="stylesheet" href="/assets/css/splash.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
         <header class="header">
@@ -10,17 +12,19 @@
         </header>
         <div class="splash" id="logo">
             <div class="splash--item">
-                {% include logo_yellow.html id="logo" animate=true width='50vw' %}
+                {% include logo_yellow.html id="logo" animate=true width='100%' %}
             </div>
             <div class="splash--item">
-                <div class="title"> 
-                    <p>Uma</p>
-                    <h3>INICIATIVA</h3>
-                    <p>de <b>hackers</b> para <b>hackers</b></p>
+                <div class="title">
+                    <p>Apresentações relâmpago</p>
+                    <p>que quebram paradigmas</p>
                 </div>
             </div>
         </div>
         {{ content }}
         {% asset bundle.js %}
+        <footer class="home--footer">
+
+        </footer>
     </body>
 </html>

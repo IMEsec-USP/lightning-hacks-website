@@ -17,13 +17,16 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
 }
 
 .splash--item {
-    min-width: 50vw;
+    min-width: 40%;
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .title {
@@ -32,3 +35,10 @@
     text-align: center;
     word-wrap: break-word;
 }
+
+// @media (max-width:800px) {
+//     .splash--item {
+//         width: 100%;
+//     }
+// }
+  

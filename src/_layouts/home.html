@@ -2,9 +2,7 @@
     <head>
         <title>{{ page.title }}</title>
         <link rel="stylesheet" href="/assets/css/styles.css" />
-        <link rel="stylesheet" href="/assets/css/splash.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     </head>
     <body>
         <header class="header">
@@ -22,9 +20,7 @@
             </div>
         </div>
         {{ content }}
+        {% include footer.html %}
         {% asset bundle.js %}
-        <footer class="home--footer">
-
-        </footer>
     </body>
 </html>

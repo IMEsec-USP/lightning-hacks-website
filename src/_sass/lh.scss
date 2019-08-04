@@ -6,7 +6,9 @@
     font-family: 'Saira', sans-serif;
 }
 
-
+body {
+    overflow-x: hidden;
+}
 
 .header {
     background-color: rgba($color: #fff, $alpha: 0.0);
@@ -44,7 +46,8 @@
     align-items: flex-start;
     margin: 8% 5%;
     text-align: left;
-    max-width: 50%;
+    max-width: 40%;
+
     .home--button {
         margin-top: 2em;
         display: inline-block;

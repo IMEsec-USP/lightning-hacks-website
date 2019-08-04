@@ -34,7 +34,8 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    height: 100vh;
+    height: content;
+    min-height: 100vh;
     justify-content: flex-start;
     align-items: flex-end;
 }
@@ -62,6 +63,13 @@ body {
     p {
         font-size: 1.4rem;
     }
+}
+
+
+.home--svg {
+    width: 50vw ;
+    height: 90vh;
+    margin: 5vh 0;
 }
 
 .home--color-scheme-1 {
@@ -101,5 +109,11 @@ body {
         h2 {
             font-size: 2.4rem;
         }
+    }
+
+    .home--svg {
+        width: 100vw ;
+        height: 50vh;
+        order: -1;
     }
 }

@@ -5,3 +5,4 @@ _site
 src/assets/javascript/bundle.js
 node_modules/
 public
+.vscode/

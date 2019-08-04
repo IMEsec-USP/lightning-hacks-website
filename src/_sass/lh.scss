@@ -3,4 +3,100 @@
     padding: 0;
     border: 0;
     scroll-behavior: smooth;
+    font-family: 'Saira', sans-serif;
+}
+
+
+
+.header {
+    background-color: rgba($color: #fff, $alpha: 0.0);
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+    top: 5vh;
+    font-size: 1.5em;
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.home {
+    background: #000;
+
+}
+
+.home--section {
+    padding-bottom: 3em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.home--content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 8% 5%;
+    text-align: left;
+    max-width: 50%;
+    .home--button {
+        margin-top: 2em;
+        display: inline-block;
+    }
+
+    h2 {
+        font-size: 3.8rem;
+        line-height: 120%;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+}
+
+.home--color-scheme-1 {
+    background-color: #F9DF25;
+    * {
+        color: #F70D88;
+    }
+}
+.home--color-scheme-2 {
+    background-color: #000;
+    * {
+        color: #01ADEF;
+    }
+}
+.home--color-scheme-3 {
+    background-color: #01ADEF;
+    * {
+        color: #FFF;
+    }
+}
+.home--color-scheme-4 {
+    background-color: #FFF;
+    * {
+        color: #F70D88;
+    }
+}
+
+.home--color-scheme-5 {
+    background-color: #F70D88;
+    * {
+        color: #FFF;
+    }
+}
+@media (max-width:800px) {
+    .home--content {
+        max-width: 100%;
+        h2 {
+            font-size: 2.4rem;
+        }
+    }
 }

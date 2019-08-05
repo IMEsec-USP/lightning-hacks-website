@@ -103,6 +103,15 @@ body {
         color: #FFF;
     }
 }
+
+.home--link {
+    text-decoration: none;
+}
+
+.home--hidden-link {
+    margin-top: 1.5rem;
+}
+
 @media (max-width:800px) {
     .home--content {
         max-width: 100%;

@@ -53,29 +53,34 @@ def get_data():
 
     data = {
         'hacks': [],
-        'hacks_backup': []
+        'hacks_on_queue': []
     }
-    for row in values[0:5]:
+
+    for title, presenter, materials, _, time in values[0:5]:
         if values[0]:
             hack = {
-                'title': row[0],
-                'presenter': row[1],
-                'materials': row[2],
-                'time': row[4]
+                'title': title,
+                'presenter': presenter,
+                'materials': materials,
+                'time': time
             }
+
             data['hacks'].append(hack)
-    backups = []
-    for row in values[6:8]:
+
+    for title, presenter, materials, _, time in values[6:8]:
         if values[0]:
             hack = {
-                'title': row[0],
-                'presenter': row[1],
-                'materials': row[2],
-                'time': row[4]
+                'title': title,
+                'presenter': presenter,
+                'materials': materials,
+                'time': time
             }
-            data['hacks_backup'].append(hack)
-    data['mc'] = values[7][0]
-    data['mc_backup'] = values[7][0]
+
+            data['hacks_on_queue'].append(hack)
+
+    data['mc'] = values[10][0]
+    data['reserve_mc'] = values[11][0]
+
     return data
 
 @app.route('/')

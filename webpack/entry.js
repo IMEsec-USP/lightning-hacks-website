@@ -1,3 +1,6 @@
-import './animate-thunder'
+import './animateThunder'
+import TableFetcher from './tableFetcher'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-console.log('Hello, Webpack!')
+ReactDOM.render(<TableFetcher />, document.getElementById('next-event-box'))

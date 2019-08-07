@@ -4,6 +4,7 @@
 import pickle
 import os.path
 import logging, sys, traceback, requests
+from utils import cache_response
 from flask import Flask, request, jsonify, redirect, url_for, jsonify, abort, make_response
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 from datetime import timedelta
@@ -37,6 +38,7 @@ config_app(app,'lightning_api')
 
 json = FlaskJSON(app)
 
+@cache_response(time=timedelta(hours=3))
 def get_data():
     service = build('sheets', 'v4', credentials=CREDS)
 

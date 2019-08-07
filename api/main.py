@@ -38,7 +38,7 @@ config_app(app,'lightning_api')
 
 json = FlaskJSON(app)
 
-@cache_response(time=timedelta(hours=3))
+@cache_response(time=timedelta(hours=1))
 def get_data():
     service = build('sheets', 'v4', credentials=CREDS)
 

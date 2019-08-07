@@ -74,7 +74,7 @@ def get_data():
 
 @app.route('/')
 def index():
-    return json_response(200, msg="Welcome to the Lightnint API!")
+    return json_response(200, msg="Welcome to the Lightning API!")
 
 @app.route('/hacks', methods=['GET'])
 def get_hacks():

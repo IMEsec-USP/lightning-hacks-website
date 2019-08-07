@@ -10,7 +10,7 @@ const shardAnimationDetails = {
 
 const lightningAnimationDetails = {
     ...shardAnimationDetails,
-    easing: 'steps(4)',
+    easing: 'steps(3)',
 }
 
 anime({

@@ -3,6 +3,10 @@ _site
 */.jekyll-metadata
 .jekyll-cache/
 src/assets/javascript/bundle.js
+*/__pycache__/
+*.pyc
+*.pyo
 node_modules/
 public
 .vscode/
+token.pickle

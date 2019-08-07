@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    container_name: lightning_web
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    ports:
+      - "8994:5000"
+
+  api:
+    container_name: lightning_api
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-api
+    ports:
+      - "8992:5000"

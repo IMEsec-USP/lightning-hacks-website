@@ -85,7 +85,9 @@ def get_data():
 
 @app.route('/')
 def index():
-    return json_response(200, msg="Welcome to the Lightning API!")
+    response = json_response(200, msg="Welcome to the Lightning API!")
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 @app.route('/hacks', methods=['GET'])
 def get_hacks():

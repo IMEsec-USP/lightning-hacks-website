@@ -10,6 +10,7 @@ class TableFetcher extends Component {
             loaded: false,
             success: false,
             hacks: null,
+            nextDay: null,
         }
         this.fetchData()
     }
@@ -23,6 +24,7 @@ class TableFetcher extends Component {
                 loaded: true,
                 success: true,
                 hacks: res.data.hacks,
+                nextDay: res.data.next_day
             })
         })
         .catch(err => {
@@ -35,7 +37,13 @@ class TableFetcher extends Component {
     }
 
     render () {
-        const { loaded, success, hacks } = this.state
+        const { loaded, success, hacks, nextDay } = this.state
+        if (!loaded) {
+            return (
+                <span class="home--spinner"></span>
+            )
+        }
+
         console.log({state: this.state})
         return (
             <div class="home--next-event-box">
@@ -44,7 +52,7 @@ class TableFetcher extends Component {
                     <div>
                         <h3>Próximo Lightning Hacks</h3>    
                     </div>
-                    <Table hacks={hacks} />
+                    <Table hacks={hacks} nextDay={nextDay} />
                     </>
                 }
             </div>

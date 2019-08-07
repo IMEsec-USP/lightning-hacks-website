@@ -1,14 +1,14 @@
 import React from 'react'
 import Row from './row'
 
-const Table = ({ hacks }) => {
+const Table = ({ hacks, nextDay }) => {
     const rows = hacks.map(({presenter, title}) =>
                     <Row presenter={presenter} title={title} />)
 
     return (
         <>
         <div class="home--next-event-date">
-            <p>Dia: 14/08</p>
+            <p style={{textTransform: 'capitalize'}}>{ nextDay }</p>
         </div>
         <div class="home--table">
             <div class="home--table-row home--table-header">

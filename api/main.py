@@ -27,8 +27,7 @@ def get_credentials():
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
-# The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1v28QjM_P2i6q2jxoVIrLOmyn5E2Iv2kJCrT0u2xa_OM'
+SPREADSHEET_ID = '1v28QjM_P2i6q2jxoVIrLOmyn5E2Iv2kJCrT0u2xa_OM'
 SAMPLE_RANGE_NAME = 'Próxima LH!B2:G'
 CREDS = get_credentials()
 
@@ -39,48 +38,43 @@ config_app(app,'lightning_api')
 json = FlaskJSON(app)
 
 def get_data():
-    creds = None
-    with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
-    
-    service = build('sheets', 'v4', credentials=creds)
+    service = build('sheets', 'v4', credentials=CREDS)
 
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID,
                                 range=SAMPLE_RANGE_NAME).execute()
     values = result.get('values', [])
 
-    if not values:
+    if values == []:
         print('No data found.')
-    else:
-        data = {
-            'hacks': [],
-            'hacks_backup': []
-        }
-        for row in values[0:5]:
-            if values[0]:
-                hack = {
-                    'title': row[0],
-                    'presenter': row[1],
-                    'materials': row[2],
-                    #'email': row[3],
-                    'time': row[4]
-                }
-                data['hacks'].append(hack)
-        backups = []
-        for row in values[6:8]:
-            if values[0]:
-                hack = {
-                    'title': row[0],
-                    'presenter': row[1],
-                    'materials': row[2],
-                    #'email': row[3],
-                    'time': row[4]
-                }
-                data['hacks_backup'].append(hack)
-        data['mc'] = values[7][0]
-        data['mc_backup'] = values[7][0]
-        return data
+        return {}
+
+    data = {
+        'hacks': [],
+        'hacks_backup': []
+    }
+    for row in values[0:5]:
+        if values[0]:
+            hack = {
+                'title': row[0],
+                'presenter': row[1],
+                'materials': row[2],
+                'time': row[4]
+            }
+            data['hacks'].append(hack)
+    backups = []
+    for row in values[6:8]:
+        if values[0]:
+            hack = {
+                'title': row[0],
+                'presenter': row[1],
+                'materials': row[2],
+                'time': row[4]
+            }
+            data['hacks_backup'].append(hack)
+    data['mc'] = values[7][0]
+    data['mc_backup'] = values[7][0]
+    return data
 
 @app.route('/')
 def index():

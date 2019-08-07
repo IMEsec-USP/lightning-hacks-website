@@ -2,7 +2,7 @@ import React from 'react'
 
 const Row = ({ presenter, title }) => {
     if (!presenter && !title) {
-        return <span></span>
+        return null
     }
     return (
         <div class="home--table-row">

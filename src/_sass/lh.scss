@@ -1,3 +1,7 @@
+$pink-lh: #F70D88;
+$yellow-lh: #F9DF25;
+$blue-lh: #01ADEF;
+
 * {
     margin: 0;
     padding: 0;
@@ -73,19 +77,19 @@ body {
 }
 
 .home--color-scheme-1 {
-    background-color: #F9DF25;
+    background-color: $yellow-lh;
     * {
-        color: #F70D88;
+        color: $pink-lh;
     }
 }
 .home--color-scheme-2 {
     background-color: #000;
     * {
-        color: #01ADEF;
+        color: $blue-lh;
     }
 }
 .home--color-scheme-3 {
-    background-color: #01ADEF;
+    background-color: $blue-lh;
     * {
         color: #FFF;
     }
@@ -93,12 +97,12 @@ body {
 .home--color-scheme-4 {
     background-color: #FFF;
     * {
-        color: #F70D88;
+        color: $pink-lh;
     }
 }
 
 .home--color-scheme-5 {
-    background-color: #F70D88;
+    background-color: $pink-lh;
     * {
         color: #FFF;
     }
@@ -112,6 +116,46 @@ body {
     margin-top: 1.5rem;
 }
 
+.home--next-event-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home--next-event-date p {
+    font-size: 3em;
+}
+
+.home--table {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+
+    align-content: stretch;
+}
+
+.home--table-header {
+    font-weight: bold;
+    background: $pink-lh;
+    div {
+        color: #FFF;
+    }
+}
+
+.home--table-row {
+    display: inline-flex;
+    margin: 0.25em;
+    border: 2px solid $pink-lh;
+    border-radius: 20px;
+}
+.home--table-cell {
+    margin: 1%;
+    flex-basis: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    color: $pink-lh;
+}
 @media (max-width:800px) {
     .home--content {
         max-width: 100%;
@@ -124,5 +168,9 @@ body {
         width: 100vw ;
         height: 50vh;
         order: -1;
+    }
+
+    .home--table {
+        width: 90vw;
     }
 }

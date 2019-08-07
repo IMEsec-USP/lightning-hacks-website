@@ -29,7 +29,8 @@ def get_credentials():
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 SPREADSHEET_ID = '1v28QjM_P2i6q2jxoVIrLOmyn5E2Iv2kJCrT0u2xa_OM'
-SAMPLE_RANGE_NAME = 'Próxima LH!B2:G'
+TABLE_RANGE = 'Próxima LH!B2:G'
+NEXT_DAY_RANGE = 'Próxima LH!A1'
 CREDS = get_credentials()
 
 
@@ -43,15 +44,22 @@ def get_data():
     service = build('sheets', 'v4', credentials=CREDS)
 
     sheet = service.spreadsheets()
+
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID,
-                                range=SAMPLE_RANGE_NAME).execute()
+                                range=TABLE_RANGE).execute()
     values = result.get('values', [])
+
+    next_day_request = sheet.values().get(spreadsheetId=SPREADSHEET_ID,
+                                        range=NEXT_DAY_RANGE).execute()
+    next_day_value = next_day_request.get('values', [])
+    next_day = next_day_value[0][0]
 
     if values == []:
         print('No data found.')
         return {}
 
     data = {
+        'next_day': next_day,
         'hacks': [],
         'hacks_on_queue': []
     }

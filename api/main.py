@@ -6,11 +6,23 @@ import os.path
 import logging, sys, traceback, requests
 from flask import Flask, request, jsonify, redirect, url_for, jsonify, abort, make_response
 from flask_json import FlaskJSON, JsonError, json_response, as_json
-#from var_dump import var_dump
 from datetime import timedelta
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+
+def config_app(app, module):
+    app.config['JSON_JSONIFY_HTTP_ERRORS'] = True
+    app.config['JSON_ADD_STATUS'] = True
+
+def get_credentials():
+    try:
+        with open('token.pickle', 'rb') as token:
+            return pickle.load(token)
+
+    except Exception as e:
+        print(f'WARNING: Could not fetch credentials from token.pickle: {e}')
+
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -18,10 +30,8 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1v28QjM_P2i6q2jxoVIrLOmyn5E2Iv2kJCrT0u2xa_OM'
 SAMPLE_RANGE_NAME = 'Próxima LH!B2:G'
+CREDS = get_credentials()
 
-def config_app(app, module):
-    app.config['JSON_JSONIFY_HTTP_ERRORS'] = True
-    app.config['JSON_ADD_STATUS'] = True
 
 app = Flask(__name__)
 config_app(app,'lightning_api')

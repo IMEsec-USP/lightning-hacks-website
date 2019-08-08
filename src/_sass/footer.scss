@@ -1,4 +1,20 @@
 .footer {
     background-color: #222;
     min-height: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer--social-media {
+    display: flex;
+    min-width: 30vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer--social-media--icon {
+    padding: 0.5em;
+    &:hover {
+        filter: brightness(80%);
+    }
 }

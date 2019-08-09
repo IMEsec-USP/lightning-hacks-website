@@ -1,9 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt">
     <head>
         <title>{{ page.title }}</title>
+        <link rel="preconnect" href="https://api.lh.imesec.ime.usp.br" />
+        <link rel="preconnect" href="https://fonts.googleapis.com/css" />
         <link rel="stylesheet" href="/assets/css/styles.css" />
         <link rel="shortcut icon" href="/assets/images/icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Description" content="Apresentações de 5 minutos que quebram paradigmas.">
     </head>
     <body>
         <header class="header">
@@ -11,7 +15,7 @@
         </header>
         <div class="splash" id="logo">
             <div class="splash--item">
-                {% include logo_yellow.html id="logo" animate=true width='100%' %}
+                {% include logo_yellow.html animate=true width='100%' %}
             </div>
             <div class="splash--item">
                 <div class="title">

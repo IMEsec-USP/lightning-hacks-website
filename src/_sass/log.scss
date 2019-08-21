@@ -1,0 +1,28 @@
+.log {
+    position: relative;
+    left: 15vw;
+    max-width: 70vw;
+    min-height: 60vh;
+
+    a {
+        text-decoration: none;
+    }
+
+}
+
+.log--post {
+    border-style: solid;
+    background-color: $near-white-lh;
+    padding: 2em 1em;
+    margin: 1.5em 0;
+    border-radius: 32px;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+}
+
+.log--post--title {
+    text-align: center;
+    color: #000;
+}

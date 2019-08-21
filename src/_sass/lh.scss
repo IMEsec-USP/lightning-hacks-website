@@ -31,6 +31,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
+    * {
+        padding: 0.2em;
+    }
     a {
         text-decoration: none;
         color: #fff;

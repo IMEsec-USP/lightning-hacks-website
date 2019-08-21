@@ -1,12 +1,11 @@
 .footer {
-    background-color: #222;
+    background-color: $grey-lh;
     min-height: 25%;
     display: flex;
     justify-content: space-around;
 }
 
 .footer--logo {
-    
     height: 25%;
     margin: 1em;
 }

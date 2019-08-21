@@ -1,0 +1,26 @@
+.post {
+}
+
+
+.post--header {
+    display: block;
+}
+
+.post--content {
+    // Since posts are in markdown, unfortunately we need to target tags and not classes
+    h1 {
+
+    }
+
+    h2 {
+
+    }
+
+    blockquote {
+
+    }
+
+    code {
+        
+    }
+}

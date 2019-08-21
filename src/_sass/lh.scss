@@ -1,7 +1,9 @@
 $pink-lh: #F70D88;
 $yellow-lh: #F9DF25;
 $blue-lh: #01ADEF;
-$grey-lh: #222;
+$gray-lh: #222;
+$light-gray-lh: #555;
+$near-white-lh: #EEE;
 
 * {
     margin: 0;
@@ -18,7 +20,6 @@ body {
 .header__floating {
     background-color: rgba($color: #fff, $alpha: 0.0);
     color: #fff;
-    // text-align: center;
     position: fixed;
     width: 100vw;
     top: 5vh;
@@ -38,7 +39,6 @@ body {
 
 .header__fixed {
     background-color: $pink-lh;
-    // text-align: center;
     width: 100vw;
     min-height: 10vh;
 }

@@ -1,4 +1,5 @@
 .post {
+    background-color: $near-white-lh;
 }
 
 
@@ -7,20 +8,29 @@
 }
 
 .post--content {
+    position: relative;
+    left: 15vw;
+    max-width: 70vw;
+    padding-bottom: 2em;
     // Since posts are in markdown, unfortunately we need to target tags and not classes
     h1 {
+        padding-top: 1.5em;
 
     }
 
     h2 {
+        padding-top: 1.5em;
+    }
 
+    p {
     }
 
     blockquote {
-
+        color: $light-gray-lh;
+        padding-bottom: 2em;
     }
 
     code {
-        
+
     }
 }

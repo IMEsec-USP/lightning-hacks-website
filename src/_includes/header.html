@@ -1,3 +1,9 @@
-<header class="header">
-    <a href="#logo"><p>LIGHTNING HACKS</p></a>
+{% if include.floating %}
+    {% assign class = "header__floating" %}
+{% else %}
+    {% assign class = "header__fixed" %}
+{% endif %}
+
+<header class="{{ class }}">
+    <a href="/#logo" class="header--main-link"><p>LIGHTNING HACKS</p></a>
 </header>

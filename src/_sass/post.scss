@@ -1,5 +1,7 @@
 .post {
     background-color: $near-white-lh;
+    padding-bottom: 2em;
+    padding-top: 2em;
 }
 
 
@@ -14,8 +16,6 @@
     padding-bottom: 2em;
     // Since posts are in markdown, unfortunately we need to target tags and not classes
     h1 {
-        padding-top: 1.5em;
-
     }
 
     h2 {

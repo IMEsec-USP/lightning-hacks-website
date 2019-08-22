@@ -8,13 +8,14 @@
         <meta name="Description" content="{{ page.description | default: "Histórico do Lightning Hacks" }}">
     </head>
     <body>
+        <div class="post--header">
+            {% include header.html %}
+        </div>
         <div class="post">
-            <div class="post--header">
-                {% include header.html %}
-            </div>
             <div class="post--content">
                 {{ content }}
             </div>
         </div>
+        {% include footer.html %}
     </body>
 </html>

@@ -2,7 +2,7 @@
     position: relative;
     left: 15vw;
     max-width: 70vw;
-    min-height: 60vh;
+    min-height: 65vh;
 
     a {
         text-decoration: none;
@@ -16,6 +16,8 @@
     padding: 2em 1em;
     margin: 1.5em 0;
     border-radius: 32px;
+    text-align: center;
+    color: #000;
 
     &:hover {
         filter: brightness(90%);

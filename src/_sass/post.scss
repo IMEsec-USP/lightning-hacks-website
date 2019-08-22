@@ -15,22 +15,20 @@
     max-width: 70vw;
     padding-bottom: 2em;
     // Since posts are in markdown, unfortunately we need to target tags and not classes
-    h1 {
-    }
-
     h2 {
         padding-top: 1.5em;
     }
 
-    p {
+    hr {
+        margin-top: 1.5em;
+        display: block;
+        border-style: inset;
+        border-width: 1px;
+        border-color: $near-white-lh;
     }
 
     blockquote {
         color: $light-gray-lh;
         padding-bottom: 2em;
-    }
-
-    code {
-
     }
 }

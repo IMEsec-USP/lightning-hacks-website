@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+        <link rel="shortcut icon" href="/assets/images/icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Description" content="{{ page.description | default: "Log do Lightning Hacks" }}">
+    </head>
+    <body>
+        {{ content }}
+        {% include footer.html %}
+        {% asset bundle.js %}
+    </body>
+</html>

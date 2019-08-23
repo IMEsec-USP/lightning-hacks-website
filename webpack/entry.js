@@ -4,4 +4,7 @@ import TableFetcher from './tableFetcher'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-ReactDOM.render(<TableFetcher />, document.getElementById('next-event-box'))
+const nextEventBoxElement = document.getElementById('next-event-box')
+if (nextEventBoxElement) {
+    ReactDOM.render(<TableFetcher />, nextEventBoxElement)
+}

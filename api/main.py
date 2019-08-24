@@ -64,7 +64,7 @@ def get_data():
         'hacks_on_queue': []
     }
 
-    for title, presenter, materials, _, time in values[0:5]:
+    for title, presenter, materials, _, time, *other in values[0:5]:
         if values[0]:
             hack = {
                 'title': title,
@@ -75,7 +75,7 @@ def get_data():
 
             data['hacks'].append(hack)
 
-    for title, presenter, materials, _, time in values[6:8]:
+    for title, presenter, materials, _, time, *other in values[6:8]:
         if values[0]:
             hack = {
                 'title': title,

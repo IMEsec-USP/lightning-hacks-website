@@ -12,4 +12,4 @@ RUN pip install -r /requirements.txt
 
 COPY api /data
 
-CMD ["python", "main.py"]
+CMD ["gunicorn", "main:app", "-b", "0.0.0.0:5000", "-w", "2"]

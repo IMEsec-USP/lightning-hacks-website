@@ -13,22 +13,21 @@ var lastPosition = -1;
 
 // my Variables
 var lastSection = false;
-var replaceItemTop = -1;
-var replaceItemBottom = -1;
-var replaceItemHeight = -1;
+var headerItemTop = -1;
+var headerItemBottom = -1;
+var headerItemHeight = -1;
 
 // The Scroll Function
 function loop() {
-  // my sections to calculate stuff
   var sections = document.querySelectorAll(".home--section, .splash");
-  var replaceContainer = document.querySelectorAll(".header--replace");
-  var replaceItem = document.querySelectorAll(".header--replace-item");
+  var headerDynamic = document.querySelectorAll(".header-dynamic");
+  var headerItem = document.querySelectorAll(".header-dynamic--item");
 
-  if (replaceItem.length > 0) {
+  if (headerItem.length > 0) {
     // get top position of item from container, because image might not have loaded
-    replaceItemTop = parseInt(replaceContainer[0].getBoundingClientRect().top);
-    replaceItemHeight = replaceItem[0].offsetHeight;
-    replaceItemBottom = replaceItemTop + replaceItemHeight;
+    headerItemTop = parseInt(headerDynamic[0].getBoundingClientRect().top);
+    headerItemHeight = headerItem[0].offsetHeight;
+    headerItemBottom = headerItemTop + headerItemHeight;
   }
 
   var sectionTop = -1;
@@ -42,34 +41,34 @@ function loop() {
   } else {
     lastPosition = window.pageYOffset;
 
-    // Your Function
     Array.prototype.forEach.call(sections, function(el, i) {
       sectionTop = parseInt(el.getBoundingClientRect().top);
       sectionBottom = parseInt(el.getBoundingClientRect().bottom);
 
       // active section
-      if (sectionTop <= replaceItemBottom && sectionBottom > replaceItemTop) {
+      if (sectionTop <= headerItemBottom && sectionBottom > headerItemTop) {
         // check if current section has bg
         currentSection =
           el.classList.contains("home--color-scheme-4") ||
           el.classList.contains("home--color-scheme-1");
 
+        
         // switch class depending on background image
         if (currentSection) {
-          replaceContainer[0].classList.remove("header--replace-reverse");
+          headerDynamic[0].classList.remove("header-dynamic--reverse");
         } else {
-          replaceContainer[0].classList.add("header--replace-reverse");
+          headerDynamic[0].classList.add("header-dynamic--reverse");
         }
       }
       // end active section
 
       // if active Section hits replace area
-      if (replaceItemTop < sectionTop && sectionTop <= replaceItemBottom) {
+      if (headerItemTop < sectionTop && sectionTop <= headerItemBottom) {
         // animate only, if section background changed
         if (currentSection != lastSection) {
           document.documentElement.style.setProperty(
             "--replace-offset",
-            (100 / replaceItemHeight) * parseInt(sectionTop - replaceItemTop) +
+            (100 / headerItemHeight) * parseInt(sectionTop - headerItemTop) +
               "%"
           );
         }
@@ -78,7 +77,7 @@ function loop() {
       // end active section in replace area
 
       // if section above replace area
-      if (replaceItemTop >= sectionTop) {
+      if (headerItemTop >= sectionTop) {
         // set offset to 0 if you scroll too fast
         document.documentElement.style.setProperty("--replace-offset", 0 + "%");
         // set last section to current section

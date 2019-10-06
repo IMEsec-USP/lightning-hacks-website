@@ -22,39 +22,27 @@ body {
     overflow-x: hidden;
 }
 
-.header__floating {
-    background-color: rgba($color: #fff, $alpha: 0.0);
-    color: #fff;
-    position: fixed;
-    width: 100vw;
-    top: 5vh;
-}
-
 .header__fixed, .header__floating {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    * {
-       padding-right: 2rem;
-    }
+
+    width: 100vw;
+    min-height: 10vh;
+
     a {
         text-decoration: none;
         color: #fff;
     }
 }
 
-.header__fixed {
-    background-color: $pink-lh;
-    width: 100vw;
-    min-height: 10vh;
+.header__floating {
+    background-color: rgba($color: #fff, $alpha: 0.0);
 }
 
-.header--content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
+.header__fixed {
+    background-color: $pink-lh;
 }
 
 .header--invert {
@@ -63,11 +51,18 @@ body {
     }
 }
 
-.header--replace {
+.header-dynamic {
     display: grid;
+    background-color: rgba($color: #fff, $alpha: 0.0);
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   }
   
-  .header--replace-item {
+  .header-dynamic--item {
     grid-row: -1 / 1;
     grid-column: -1 / 1; 
     overflow: hidden;
@@ -75,10 +70,10 @@ body {
   }
   
   /* item to replace with */
-  .header--replace-item {
+  .header-dynamic--item {
     transform: translateY(calc(var(--replace-offset) * 1));  
   }
-  .header--replace-content {
+  .header__floating {
     /* fixes problem with calculating correct height in js */
     border: 1px solid transparent; 
     will-change: transform;
@@ -87,30 +82,30 @@ body {
   }
   
   /* previous replace item*/
-  .header--replace-item-active {
+  .header-dynamic--item-active {
     transform: translateY(calc(var(--replace-offset-2) * 1));  
   }
-  .header--replace-item-active .header--replace-content {
+  .header-dynamic--item-active .header__floating {
     transform: translateY(calc(var(--replace-offset-2) * -1));  
   }
   
   
   /* REVERSE ANIMATION */
-  .header--replace-reverse 
-  .header--replace-item {
+  .header-dynamic--reverse 
+  .header-dynamic--item {
     transform: translateY(calc(var(--replace-offset-2) * 1));  
   }
-  .header--replace-reverse 
-  .header--replace-content {
+  .header-dynamic--reverse 
+  .header__floating {
     transform: translateY(calc(var(--replace-offset-2) * -1));
   }
   
   /* previous replace item*/
-  .header--replace-reverse 
-  .header--replace-item-active {
+  .header-dynamic--reverse 
+  .header-dynamic--item-active {
     transform: translateY(calc(var(--replace-offset) * 1));  
   }
-  .header--replace-reverse 
-  .header--replace-item-active .header--replace-content {
+  .header-dynamic--reverse 
+  .header-dynamic--item-active .header__floating {
     transform: translateY(calc(var(--replace-offset) * -1));
   }

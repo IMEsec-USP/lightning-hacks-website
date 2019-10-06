@@ -1,111 +1,114 @@
-$pink-lh: #F70D88;
-$yellow-lh: #F9DF25;
-$blue-lh: #01ADEF;
+$pink-lh: #f70d88;
+$yellow-lh: #f9df25;
+$blue-lh: #01adef;
 $gray-lh: #222;
 $light-gray-lh: #555;
-$near-white-lh: #EEE;
+$near-white-lh: #eee;
 
 :root {
   --replace-offset: 50%;
-  --replace-offset-2: calc((100% - var(--replace-offset) ) * -1)
+  --replace-offset-2: calc((100% - var(--replace-offset)) * -1);
+  --header-background: #f70d88;
+  --header-background-invert: #f70d88;
+  --header-text-color: white;
+  --header-text-color-invert: white;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    scroll-behavior: smooth;
-    font-family: 'Saira', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  scroll-behavior: smooth;
+  font-family: "Saira", sans-serif;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-.header__fixed, .header__floating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
+.header__fixed,
+.header__floating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
 
-    width: 100vw;
-    min-height: 10vh;
+  width: 100vw;
+  min-height: 10vh;
 
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
+  a {
+    text-decoration: none;
+    color: var(--header-text-color);
+  }
 }
 
 .header__floating {
-    background-color: rgba($color: #fff, $alpha: 0.0);
+  background-color: var(--header-background);
 }
 
 .header__fixed {
-    background-color: $pink-lh;
+  background-color: $pink-lh;
 }
 
 .header--invert {
-    a {
-        color: $pink-lh;
-    }
+  background-color: var(--header-background-invert);
+  a {
+    color: var(--header-text-color-invert);
+  }
 }
 
 .header-dynamic {
-    display: grid;
-    background-color: rgba($color: #fff, $alpha: 0.0);
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    width: 100vw;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: grid;
+  background-color: rgba($color: #fff, $alpha: 0);
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out;
+  // fix issue from the hidden background
+  margin-top: -2px;
+}
 
-  }
-  
-  .header-dynamic--item {
-    grid-row: -1 / 1;
-    grid-column: -1 / 1; 
-    overflow: hidden;
-    will-change: transform;
-  }
-  
-  /* item to replace with */
-  .header-dynamic--item {
-    transform: translateY(calc(var(--replace-offset) * 1));  
-  }
-  .header__floating {
-    /* fixes problem with calculating correct height in js */
-    border: 1px solid transparent; 
-    will-change: transform;
-  
-    transform: translateY(calc(var(--replace-offset) * -1));
-  }
-  
-  /* previous replace item*/
-  .header-dynamic--item-active {
-    transform: translateY(calc(var(--replace-offset-2) * 1));  
-  }
-  .header-dynamic--item-active .header__floating {
-    transform: translateY(calc(var(--replace-offset-2) * -1));  
-  }
-  
-  
-  /* REVERSE ANIMATION */
-  .header-dynamic--reverse 
-  .header-dynamic--item {
-    transform: translateY(calc(var(--replace-offset-2) * 1));  
-  }
-  .header-dynamic--reverse 
-  .header__floating {
-    transform: translateY(calc(var(--replace-offset-2) * -1));
-  }
-  
-  /* previous replace item*/
-  .header-dynamic--reverse 
-  .header-dynamic--item-active {
-    transform: translateY(calc(var(--replace-offset) * 1));  
-  }
-  .header-dynamic--reverse 
-  .header-dynamic--item-active .header__floating {
-    transform: translateY(calc(var(--replace-offset) * -1));
-  }
+.header-dynamic--item {
+  grid-row: -1 / 1;
+  grid-column: -1 / 1;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* item to replace with */
+.header-dynamic--item {
+  transform: translateY(calc(var(--replace-offset) * 1));
+}
+.header__floating {
+  /* fixes problem with calculating correct height in js */
+  border: 1px solid transparent;
+  will-change: transform;
+
+  transform: translateY(calc(var(--replace-offset) * -1));
+}
+
+/* previous replace item*/
+.header-dynamic--item-active {
+  transform: translateY(calc(var(--replace-offset-2) * 1));
+}
+.header-dynamic--item-active .header__floating {
+  transform: translateY(calc(var(--replace-offset-2) * -1));
+}
+
+/* REVERSE ANIMATION */
+.header-dynamic--reverse .header-dynamic--item {
+  transform: translateY(calc(var(--replace-offset-2) * 1));
+}
+.header-dynamic--reverse .header__floating {
+  transform: translateY(calc(var(--replace-offset-2) * -1));
+}
+
+/* previous replace item*/
+.header-dynamic--reverse .header-dynamic--item-active {
+  transform: translateY(calc(var(--replace-offset) * 1));
+}
+.header-dynamic--reverse .header-dynamic--item-active .header__floating {
+  transform: translateY(calc(var(--replace-offset) * -1));
+}

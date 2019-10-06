@@ -17,6 +17,12 @@ var headerItemTop = -1;
 var headerItemBottom = -1;
 var headerItemHeight = -1;
 
+const pinkLH = "#F70D88";
+const yellowLH = "#F9DF25";
+const blueLH = "#01ADEF";
+const whiteLH = "#FFF";
+const blackLH = "#000";
+
 // The Scroll Function
 function loop() {
   var sections = document.querySelectorAll(".home--section, .splash");
@@ -48,17 +54,44 @@ function loop() {
       // active section
       if (sectionTop <= headerItemBottom && sectionBottom > headerItemTop) {
         // check if current section has bg
-        currentSection =
-          el.classList.contains("home--color-scheme-4") ||
-          el.classList.contains("home--color-scheme-1");
 
-        
+        const oddClasses = ["home--color-scheme-1", "home--color-scheme-3", "home--color-scheme-5"];
+
+        currentSection = 
+          el.classList.contains(oddClasses[0]) ||
+          el.classList.contains(oddClasses[1]) ||
+          el.classList.contains(oddClasses[2]);
+
+          const colorSchemes = [ 
+            ["splash", [pinkLH, whiteLH ]], 
+            ["home--color-scheme-1", [yellowLH, pinkLH]], 
+            ["home--color-scheme-2", [blackLH, blueLH]], 
+            ["home--color-scheme-3", [blueLH, whiteLH]], 
+            ["home--color-scheme-4", [whiteLH, pinkLH]], 
+            ["home--color-scheme-5", [pinkLH, whiteLH]]
+          ];
+
+          for (var i in colorSchemes) {
+            const colorScheme = colorSchemes[i];
+            const colorSchemeClass = colorScheme[0];
+            const colors = colorScheme[1];
+            const isOdd = oddClasses.includes(colorSchemeClass);
+
+            const varBackground = "--header-background" + (isOdd ? "-invert" : "");
+            const varTextColor  = "--header-text-color" + (isOdd ? "-invert" : "");
+
+            if (el.classList.contains(colorSchemeClass)) {
+              document.documentElement.style.setProperty(varBackground, colors[0]);
+              document.documentElement.style.setProperty(varTextColor, colors[1]);
+            }
+          }
+
         // switch class depending on background image
-        if (currentSection) {
+        if (currentSection)
           headerDynamic[0].classList.remove("header-dynamic--reverse");
-        } else {
+        else
           headerDynamic[0].classList.add("header-dynamic--reverse");
-        }
+        
       }
       // end active section
 

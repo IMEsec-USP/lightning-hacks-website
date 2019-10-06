@@ -5,6 +5,11 @@ $gray-lh: #222;
 $light-gray-lh: #555;
 $near-white-lh: #EEE;
 
+:root {
+  --replace-offset: 50%;
+  --replace-offset-2: calc((100% - var(--replace-offset) ) * -1)
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +28,6 @@ body {
     position: fixed;
     width: 100vw;
     top: 5vh;
-
 }
 
 .header__fixed, .header__floating {
@@ -32,7 +36,7 @@ body {
     align-items: center;
     font-size: 1.5em;
     * {
-        padding: 0.2em;
+       padding-right: 2rem;
     }
     a {
         text-decoration: none;
@@ -45,3 +49,68 @@ body {
     width: 100vw;
     min-height: 10vh;
 }
+
+.header--content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.header--invert {
+    a {
+        color: $pink-lh;
+    }
+}
+
+.header--replace {
+    display: grid;
+  }
+  
+  .header--replace-item {
+    grid-row: -1 / 1;
+    grid-column: -1 / 1; 
+    overflow: hidden;
+    will-change: transform;
+  }
+  
+  /* item to replace with */
+  .header--replace-item {
+    transform: translateY(calc(var(--replace-offset) * 1));  
+  }
+  .header--replace-content {
+    /* fixes problem with calculating correct height in js */
+    border: 1px solid transparent; 
+    will-change: transform;
+  
+    transform: translateY(calc(var(--replace-offset) * -1));
+  }
+  
+  /* previous replace item*/
+  .header--replace-item-active {
+    transform: translateY(calc(var(--replace-offset-2) * 1));  
+  }
+  .header--replace-item-active .header--replace-content {
+    transform: translateY(calc(var(--replace-offset-2) * -1));  
+  }
+  
+  
+  /* REVERSE ANIMATION */
+  .header--replace-reverse 
+  .header--replace-item {
+    transform: translateY(calc(var(--replace-offset-2) * 1));  
+  }
+  .header--replace-reverse 
+  .header--replace-content {
+    transform: translateY(calc(var(--replace-offset-2) * -1));
+  }
+  
+  /* previous replace item*/
+  .header--replace-reverse 
+  .header--replace-item-active {
+    transform: translateY(calc(var(--replace-offset) * 1));  
+  }
+  .header--replace-reverse 
+  .header--replace-item-active .header--replace-content {
+    transform: translateY(calc(var(--replace-offset) * -1));
+  }

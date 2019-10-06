@@ -1,5 +1,6 @@
 import './animateThunder'
 import './animateTime'
+import './animateHeader'
 import TableFetcher from './tableFetcher'
 import React from 'react'
 import ReactDOM from 'react-dom'

@@ -20,7 +20,6 @@ class TableFetcher extends Component {
         fetch(LH_API_ENDPOINT, { mode: 'cors' })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
             this.setState({
                 loaded: true,
                 success: true,
@@ -29,7 +28,6 @@ class TableFetcher extends Component {
             })
         })
         .catch(err => {
-            console.log(err)
             this.setState({
                 loaded: true,
                 success: false,
@@ -54,7 +52,6 @@ class TableFetcher extends Component {
             )
         }
 
-        console.log({state: this.state})
         return (
             <div class="home--next-event-box">
                 <div>

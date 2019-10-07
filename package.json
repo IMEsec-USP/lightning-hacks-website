@@ -7,6 +7,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "animejs": "^3.0.1",
+    "aos": "^2.3.4",
     "halogenium": "^2.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

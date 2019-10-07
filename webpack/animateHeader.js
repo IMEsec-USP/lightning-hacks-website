@@ -1,3 +1,5 @@
+import anime from 'animejs'
+
 // Detect request animation frame
 var scroll =
   window.requestAnimationFrame ||
@@ -25,6 +27,20 @@ const blackLH = "#000";
 
 // The Scroll Function
 function loop() {
+  if (window.scrollY == 0) {
+    anime({
+      targets: '.header--line',
+      opacity: [0.5,1],
+      scaleX: [0, 1],
+      easing: "easeInOutExpo",
+      duration: 700
+    });    
+
+    anime({
+      targets: ".header-dynamic::after",
+      opacity: 1
+    });
+  }
   var sections = document.querySelectorAll(".home--section, .splash");
   var headerDynamic = document.querySelectorAll(".header-dynamic");
   var headerItem = document.querySelectorAll(".header-dynamic--item");

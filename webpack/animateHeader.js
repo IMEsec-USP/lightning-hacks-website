@@ -1,5 +1,5 @@
 import anime from "animejs";
-import color from "./color";
+import { colorSchemes } from "./color";
 
 const scroll =
   window.requestAnimationFrame ||
@@ -9,22 +9,9 @@ const scroll =
   window.oRequestAnimationFrame ||
   function() {};
 
-const colorSchemes = [
-  ["splash", [color.pink, color.white]],
-  ["home--color-scheme-1", [color.yellow, color.pink]],
-  ["home--color-scheme-2", [color.black, color.blue]],
-  ["home--color-scheme-3", [color.blue, color.white]],
-  ["home--color-scheme-4", [color.white, color.pink]],
-  ["home--color-scheme-5", [color.pink, color.white]]
-];
-
 const oddClasses = colorSchemes
-  .filter(function(el, idx) {
-    return idx % 2 === 1;
-  })
-  .map(function(el) {
-    return el[0];
-  });
+  .filter((_, idx) => idx % 2 === 1)
+  .map(el => el[0]);
 
 const sections = document.querySelectorAll(".home--section, .splash");
 const headerDynamic = document.querySelectorAll(".header-dynamic");
@@ -37,14 +24,13 @@ let headerItemTop = -1;
 let headerItemBottom = -1;
 let headerItemHeight = -1;
 
+const isOddSection = el =>
+  oddClasses.reduce(
+    (val, oddClass) => val || el.classList.contains(oddClass),
+    false
+  );
 
-function isCurrentSectionOdd(el) {
-  return oddClasses.reduce(function(val, oddClass) {
-    return val || el.classList.contains(oddClass);
-  }, false);
-}
-
-function loop() {
+const loop = () => {
   if (window.scrollY === 0) {
     anime({
       targets: ".header--line",
@@ -66,20 +52,20 @@ function loop() {
     scroll(loop);
     return false;
   }
-  
+
   let sectionTop = -1;
   let sectionBottom = -1;
   let currentSection = -1;
 
   lastPosition = window.pageYOffset;
 
-  sections.forEach((el, i) => {
+  sections.forEach(el => {
     sectionTop = parseInt(el.getBoundingClientRect().top);
     sectionBottom = parseInt(el.getBoundingClientRect().bottom);
 
     // active section
     if (sectionTop <= headerItemBottom && sectionBottom > headerItemTop) {
-      currentSection = isCurrentSectionOdd(el);
+      currentSection = isOddSection(el);
       colorSchemes.forEach(colorScheme => {
         const [colorSchemeClass, colors] = colorScheme;
         const isOdd = oddClasses.includes(colorSchemeClass);
@@ -122,10 +108,8 @@ function loop() {
   });
 
   scroll(loop);
-}
+};
 
 loop();
 
-window.onresize = function() {
-  loop();
-};
+window.onresize = loop;

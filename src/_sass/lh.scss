@@ -1,47 +1,167 @@
-$pink-lh: #F70D88;
-$yellow-lh: #F9DF25;
-$blue-lh: #01ADEF;
+$pink-lh: #f70d88;
+$yellow-lh: #f9df25;
+$blue-lh: #01adef;
 $gray-lh: #222;
 $light-gray-lh: #555;
-$near-white-lh: #EEE;
+$near-white-lh: #eee;
+
+:root {
+  --replace-offset: 50%;
+  --replace-offset-2: calc((100% - var(--replace-offset)) * -1);
+  --header-background: #f70d88;
+  --header-background-invert: #f70d88;
+  --header-text-color: white;
+  --header-text-color-invert: white;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    scroll-behavior: smooth;
-    font-family: 'Saira', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  scroll-behavior: smooth;
+  font-family: "Saira", sans-serif;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+.header__fixed,
+.header__floating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+
+  width: 100vw;
+  min-height: 10vh;
+
+  a {
+    text-decoration: none;
+    color: var(--header-text-color);
+  }
 }
 
 .header__floating {
-    background-color: rgba($color: #fff, $alpha: 0.0);
-    color: #fff;
-    position: fixed;
-    width: 100vw;
-    top: 5vh;
-
-}
-
-.header__fixed, .header__floating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    * {
-        padding: 0.2em;
-    }
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
+  background-color: var(--header-background);
 }
 
 .header__fixed {
-    background-color: $pink-lh;
-    width: 100vw;
-    min-height: 10vh;
+  background-color: $pink-lh;
+  .header--line {
+    display: none;
+  }
+}
+
+.header--invert {
+  background-color: var(--header-background-invert);
+  a {
+    color: var(--header-text-color-invert);
+  }
+}
+
+.header--main-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header--menu {
+  position: absolute;
+  right: 0;
+  padding-right: 4em;
+}
+
+.header--logo {
+  height: 2.2em;
+  width: 1.3em;
+  margin-right: 1em;
+}
+
+.svg-header-logo--cls-1 {
+  fill: var(--header-text-color);
+}
+
+.header--invert
+.svg-header-logo--cls-1 {
+  fill: var(--header-text-color-invert);
+}
+
+.header--line {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -3px;
+  margin: auto;
+  height: 3px;
+  width: 95%;
+  background-color: var(--header-text-color);
+  transform-origin: 0.5 0;
+}
+
+.header--invert .header--line {
+  background-color: var(--header-text-color-invert);
+}
+
+.header-dynamic {
+  display: grid;
+  background-color: rgba($color: #fff, $alpha: 0);
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  border-radius: 5px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  // fix issue from the hidden background
+  margin-top: -2px;
+  z-index: 801;
+}
+
+.header-dynamic--item {
+  grid-row: -1 / 1;
+  grid-column: -1 / 1;
+  overflow: hidden;
+  will-change: transform;
+}
+
+// item to replace with
+.header-dynamic--item {
+  transform: translateY(calc(var(--replace-offset) * 1));
+}
+.header__floating {
+  // fixes problem with calculating correct height in js
+  border: 1px solid transparent;
+  will-change: transform;
+
+  transform: translateY(calc(var(--replace-offset) * -1));
+}
+
+// previous replace item
+.header-dynamic--item-active {
+  transform: translateY(calc(var(--replace-offset-2) * 1));
+}
+.header-dynamic--item-active .header__floating {
+  transform: translateY(calc(var(--replace-offset-2) * -1));
+}
+
+// reverse animation
+.header-dynamic--reverse .header-dynamic--item {
+  transform: translateY(calc(var(--replace-offset-2) * 1));
+}
+.header-dynamic--reverse .header__floating {
+  transform: translateY(calc(var(--replace-offset-2) * -1));
+}
+
+// previous replace item
+.header-dynamic--reverse .header-dynamic--item-active {
+  transform: translateY(calc(var(--replace-offset) * 1));
+}
+.header-dynamic--reverse .header-dynamic--item-active .header__floating {
+  transform: translateY(calc(var(--replace-offset) * -1));
+}
+
+@media (max-width: 800px) {
+  .header--menu {
+    display: none;
+  }
 }

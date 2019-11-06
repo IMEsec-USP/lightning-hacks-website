@@ -4,7 +4,21 @@
     {% assign class = "header__fixed" %}
 {% endif %}
 
-<header class="{{ class }}">
-    <a href="/#logo" class="header--main-link"><p>LIGHTNING HACKS</p></a>
-    <a href="/log"><p>Histórico</p></a>
+{% if include.invert %}
+    {% assign invert = "header--invert" %}
+{% else %}
+    {% assign invert = "" %}
+{% endif %}
+
+<header class="{{class}} {{invert}} ">
+    <a href="/#logo" class="header--main-link">
+        <div class="header--logo"> 
+            {% include header-logo.html %} 
+        </div>
+        <p>LIGHTNING HACKS</p>
+    </a>
+    <span class="header--menu">
+        <a href="/log"><p>Histórico</p></a>
+    </span>
+    <span class="header--line"></span>
 </header>

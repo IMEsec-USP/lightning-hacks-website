@@ -18,6 +18,7 @@ def cache_response(time: timedelta):
             if cached_response is None or cached_until < datetime.utcnow() or cache_used_times > FORCE_REFRESH_AMOUNT:
                 cached_response = f(*args, **kwargs)
                 cached_until = datetime.utcnow() + time
+                cache_used_times = 0
             
             cache_used_times += 1
             return cached_response

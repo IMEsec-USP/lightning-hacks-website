@@ -72,6 +72,10 @@ body {
   padding-right: 4em;
 }
 
+.header--mobile-history {
+  display: none; 
+}
+
 .header--logo {
   height: 2.2em;
   width: 1.3em;
@@ -161,7 +165,16 @@ body {
 }
 
 @media (max-width: 800px) {
-  .header--menu {
+  .header--desktop-history {
     display: none;
+  }
+
+  .header--mobile-history {
+    display: inherit;
+    font-weight: bold;
+  }
+
+  .header--menu {
+    padding-right: 1em;
   }
 }

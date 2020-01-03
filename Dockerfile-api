@@ -12,4 +12,6 @@ RUN pip install -r /requirements.txt
 
 COPY api /data
 
+EXPOSE 5000
+
 CMD ["gunicorn", "main:app", "-b", "0.0.0.0:5000", "-w", "2"]

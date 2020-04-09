@@ -92,6 +92,15 @@
     * {
         color: #FFF;
     }
+    .home--button {
+        background-color: #FFF;
+        &:hover {
+            filter: brightness(0.9);
+        }
+        * {
+            color: $pink-lh;
+        }
+    }
 }
 
 .home--next-event-box {

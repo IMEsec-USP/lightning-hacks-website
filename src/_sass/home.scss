@@ -1,5 +1,5 @@
 .home {
-    background: #000;
+    background: $black-lh;
 }
 
 .home--section {
@@ -14,7 +14,7 @@
 }
 
 .home--content {
-    color: white;
+    color: $white-lh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -51,7 +51,7 @@
     }
 }
 .home--color-scheme-2 {
-    background-color: #000;
+    background-color: $black-lh;
     * {
         color: $blue-lh;
     }
@@ -61,17 +61,17 @@
             filter: brightness(1.1);
         }
         * {
-            color: #000;
+            color: $black-lh;
         }
     }
 }
 .home--color-scheme-3 {
     background-color: $blue-lh;
     * {
-        color: #FFF;
+        color: $white-lh;
     }
     .home--button {
-        background-color: #FFF;
+        background-color: $white-lh;
         &:hover {
             filter: brightness(0.9);
         }
@@ -81,7 +81,7 @@
     }
 }
 .home--color-scheme-4 {
-    background-color: #FFF;
+    background-color: $white-lh;
     * {
         color: $pink-lh;
     }
@@ -90,10 +90,10 @@
 .home--color-scheme-5 {
     background-color: $pink-lh;
     * {
-        color: #FFF;
+        color: $white-lh;
     }
     .home--button {
-        background-color: #FFF;
+        background-color: $white-lh;
         &:hover {
             filter: brightness(0.9);
         }
@@ -136,7 +136,7 @@
     font-weight: bold;
     background: $pink-lh;
     div {
-        color: #FFF;
+        color: $white-lh;
     }
 }
 

@@ -6,7 +6,7 @@
 }
 
 .footer--logo {
-    height: 25%;
+    height: 6em;
     margin: 1em;
 }
 
@@ -22,5 +22,16 @@
     cursor: pointer;
     &:hover {
         filter: brightness(80%);
+    }
+}
+
+@media (max-width: 500px) {
+    .footer {
+        flex-wrap: wrap-reverse;
+    }
+
+    .footer--logo {
+        height: 12em;
+        margin: 1em;
     }
 }

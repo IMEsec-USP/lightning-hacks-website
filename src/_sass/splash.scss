@@ -1,6 +1,6 @@
 .splash {
     display: flex;
-    background: #f70d88;
+    background: $pink-lh;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -19,7 +19,7 @@
 
 .title {
     font-size: 3.2em;
-    color: #fff;
+    color: $white-lh;
     text-align: center;
     word-wrap: break-word;
 }

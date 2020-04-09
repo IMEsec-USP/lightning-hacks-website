@@ -1,6 +1,8 @@
 $pink-lh: #f70d88;
 $yellow-lh: #f9df25;
 $blue-lh: #01adef;
+$white-lh: #fff;
+$black-lh: #000;
 $gray-lh: #222;
 $light-gray-lh: #555;
 $near-white-lh: #eee;
@@ -8,10 +10,11 @@ $near-white-lh: #eee;
 :root {
   --replace-offset: 50%;
   --replace-offset-2: calc((100% - var(--replace-offset)) * -1);
-  --header-background: #f70d88;
-  --header-background-invert: #f70d88;
-  --header-text-color: white;
-  --header-text-color-invert: white;
+  // we need the explicit values here, otherwise the header will break
+  --header-background:#f70d88;
+  --header-background-invert:#f70d88;
+  --header-text-color: #fff;
+  --header-text-color-invert: #fff;
 }
 
 * {
@@ -108,8 +111,8 @@ body {
 
 .header-dynamic {
   display: grid;
-  background-color: rgba($color: #fff, $alpha: 0);
-  color: #fff;
+  background-color: rgba($color: $white-lh, $alpha: 0);
+  color: $white-lh;
   text-align: center;
   position: fixed;
   width: 100vw;

@@ -23,26 +23,26 @@ in another.
 
 **You must have our token.pickle for it to work completely.**
 
+Install pipenv to be able to sync python packages.
+```
+python -m ensurepip
+pip install pipenv
+```
+
 After cloning the repository,
 Navigate to the api directory.
 ```
 cd api
 ```
 
-setup python virtual environment.
-```bash
-source api/venv/activate # If you're on bash/zsh
-source api/venv/activate.fish # If you're on fish
+Sync with the python local environment.
 ```
-
-Download the dependencies through
-```
-pip install -r api/requirements.txt
+pipenv sync
 ```
 
 Finally, run the app.
 ```
-python app.py
+pipenv run python app.py
 ```
 
 ### To build for production

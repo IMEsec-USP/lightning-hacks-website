@@ -1,0 +1,38 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+cachetools = "*"
+certifi = "*"
+chardet = "*"
+click = "*"
+google-api-python-client = "*"
+google-auth = "*"
+google-auth-httplib2 = "*"
+google-auth-oauthlib = "*"
+gunicorn = "*"
+httplib2 = "*"
+idna = "*"
+itsdangerous = "*"
+oauthlib = "*"
+pyasn1 = "*"
+pyasn1-modules = "*"
+requests = "*"
+requests-oauthlib = "*"
+rsa = "*"
+six = "*"
+uritemplate = "*"
+urllib3 = "*"
+Flask = "*"
+Flask-JSON = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Werkzeug = "*"
+
+[requires]
+python_version = "3"

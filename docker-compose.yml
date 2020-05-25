@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile-web
     ports:
-      - "8994:5000"
+      - "4455:5000"
 
   api:
     container_name: lightning_api
@@ -17,4 +17,4 @@ services:
       context: .
       dockerfile: Dockerfile-api
     ports:
-      - "8992:5000"
+      - "4456:5000"

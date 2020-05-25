@@ -4,6 +4,9 @@ from jekyll/jekyll as build
 workdir /app
 copy Gemfile Gemfile.lock /app/
 copy package.json package-lock.json /app/
+
+# For some reason, bundle decided to start returning code 15 when running sucessfully for the first time
+# and docker considers this a failiure, so lets just run it again :)
 run bundle install || bundle install
 run npm i
 

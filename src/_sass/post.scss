@@ -2,6 +2,10 @@
     background-color: $near-white-lh;
     padding-bottom: 2em;
     padding-top: 2em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -11,9 +15,12 @@
 
 .post--content {
     position: relative;
-    left: 15vw;
-    max-width: 70vw;
+    // Reduce the text width to improve reading on large screens 
+    max-width: 680px;
+    margin: 64px;
+
     padding-bottom: 2em;
+
     // Since posts are in markdown, unfortunately we need to target tags and not classes
     h2 {
         padding-top: 1.5em;
@@ -37,6 +44,7 @@
         position: relative;
         overflow: hidden;
         padding-top: 56.25%;
+        margin-bottom: 1.5em;
 }
   
 .post--video-iframe {

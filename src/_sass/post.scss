@@ -23,7 +23,7 @@
 
     // Since posts are in markdown, unfortunately we need to target tags and not classes
     h2 {
-        padding-top: 1.5em;
+        padding-top: 2.5em;
     }
 
     hr {
@@ -38,9 +38,13 @@
         color: $pink-lh;
     }
 
+    p {
+        margin-bottom: 0.5em;
+    }
+
     blockquote {
         color: $light-gray-lh;
-        padding-bottom: 2em;
+        padding-bottom: 1.5em;
     }
 }
 

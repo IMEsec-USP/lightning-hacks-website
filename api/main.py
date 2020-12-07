@@ -3,7 +3,7 @@
 
 import pickle
 import os.path
-import logging, sys, traceback, requests
+import logging, sys, traceback, requests, os
 from utils import cache_response
 from flask import Flask, request, jsonify, redirect, url_for, jsonify, abort, make_response
 from flask_json import FlaskJSON, JsonError, json_response, as_json
@@ -18,7 +18,8 @@ def config_app(app, module):
 
 def get_credentials():
     try:
-        with open('token.pickle', 'rb') as token:
+        credentials_path = os.environ.get('GOOGLE_CREDENTIALS_PATH', 'token.pickle')
+        with open(credentials_path, 'rb') as token:
             return pickle.load(token)
 
     except Exception as e:

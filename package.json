@@ -11,14 +11,14 @@
     "halogenium": "^2.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@types/animejs": "^2.0.2",
-    "babel-loader": "^8.0.6",
-    "webpack": "^4.35.3"
+    "babel-loader": "^8.3.0",
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
